@@ -1,1 +1,845 @@
-Hi, this is Abhijeet...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijeet Kamble - Technical Lead & Project Manager</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-gray {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .experience-duration {
+            color: #666;
+            font-style: italic;
+        }
+
+        .experience-achievements {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-achievements li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #5a6fd8;
+        }
+
+        /* Skills Section */
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #f1f3f4;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #333;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #667eea;
+            background: #e8f0fe;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.3);
+            z-index: 1001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: #667eea;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Abhijeet Kamble</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Abhijeet Kamble</h1>
+                <p class="subtitle">Technical Lead & Project Manager</p>
+                <p class="description">
+                    7.5 years of hands-on experience in IT with expertise in EdTech solutions, 
+                    full-stack development, and leading cross-functional teams. Currently pursuing 
+                    Master's in Information Systems at DePaul University with 4.0 GPA.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="tel:+13128749341" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-white">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Abhijeet Kamble">
+                </div>
+                <div class="about-text">
+                    <p>I'm currently pursuing a <span class="highlight">Master's in Information Systems at DePaul University (4.0 GPA)</span>, with a specialization in Project Management. My journey in technology spans over 7.5 years, with 5 years dedicated to the EdTech domain.</p>
+                    
+                    <p>At <span class="highlight">Zeus Learning</span>, I worked with major global clients like <span class="highlight">Cengage, Mastery Education, School Specialty, and EtonX</span>, delivering full-scale Learning and Content Management Systems that impact thousands of students worldwide.</p>
+                    
+                    <p>In my recent role as <span class="highlight">Technical Lead at Best Student Halls (UK)</span>, I built and led their entire in-house tech department from scratch, reducing technology costs by 80% while improving system efficiency and user experience.</p>
+                    
+                    <p>I'm passionate about <span class="highlight">digital transformation, agile methodologies, and creating scalable solutions</span> that make a real difference in education and business operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">A journey through impactful roles and achievements</p>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Grader</div>
+                        <div class="experience-company">DePaul University - College of Computing and Digital Media</div>
+                    </div>
+                    <div class="experience-duration">Sept 2024 - Present</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Evaluated weekly assignments and provided constructive feedback to enhance student learning and performance</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Technical Lead</div>
+                        <div class="experience-company">Best Student Halls, UK (Remote)</div>
+                    </div>
+                    <div class="experience-duration">April 2021 - Nov 2023</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Established and led the technology department by recruiting tech and design professionals to develop and launch several web applications for students seeking international education and housing</li>
+                    <li>Migrated legacy system from external vendor to in-house platform, reducing system downtime by 50%</li>
+                    <li>Redesigned system architecture and developed alternatives for third-party integrations, reducing application costs by 80%</li>
+                    <li>Enhanced application performance resulting in 40% increase in conversion rate, earning recognition from leadership and industry peers</li>
+                    <li>Developed comprehensive technical documentation for system architecture redesign</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Module Lead</div>
+                        <div class="experience-company">Zeus Learning, Mumbai</div>
+                    </div>
+                    <div class="experience-duration">July 2020 - April 2021</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Led a team of 4 for UK-based client to develop newer version of Learning Management System (LMS) based on Open edX platform</li>
+                    <li>Collaborated with international teams across different time zones, delivering enhanced features and security</li>
+                    <li>Developed data-driven solutions for product development with data visualization models</li>
+                    <li>Performed data analysis to calculate free-to-paid subscription conversion rates for strategic insights</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Module Lead</div>
+                        <div class="experience-company">Zeus Learning, Mumbai</div>
+                    </div>
+                    <div class="experience-duration">Oct 2019 - June 2020</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Led a team of 10 to develop Content Management System (CMS) for USA-based client, targeted for K-12 education</li>
+                    <li>Enhanced application compatibility and interoperability with third-party platforms</li>
+                    <li>Served as Scrum Master, conducting daily stand-ups, sprint planning, and retrospectives</li>
+                    <li>Collaborated with cross-functional teams across UI/UX, SMEs, QA, and stakeholders in India and USA</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-company">Zeus Learning, Mumbai</div>
+                    </div>
+                    <div class="experience-duration">Jan 2018 - Sept 2019</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Led a team of 6 for USA-based client to design and develop LMS features for K-12 education</li>
+                    <li>Optimized data computation jobs by 90%, reducing overall processing time by 8 hours</li>
+                    <li>Conducted comprehensive analysis for Microsoft Azure to AWS migration, providing critical insights and SOW</li>
+                    <li>Mentored subordinates, increasing average team efficiency</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-company">Zeus Learning, Mumbai</div>
+                    </div>
+                    <div class="experience-duration">June 2016 - Dec 2017</div>
+                </div>
+                <ul class="experience-achievements">
+                    <li>Developed learning simulations for Microsoft Office applications (Word, PowerPoint, Excel, OneNote)</li>
+                    <li>Developed "Medical office simulation software" to enhance understanding of OpenEMR-based EMR systems</li>
+                    <li>Programmed report module leveraging computed user performance data</li>
+                    <li>Upgraded applications with accessibility features for blind and motor-disabled users</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Impactful solutions delivered for global clients</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cengage SAM</h3>
+                        <div class="project-company">Cengage Learning</div>
+                        <p class="project-description">
+                            Microsoft Office simulation-based learning tools used across universities worldwide. 
+                            Built interactive simulations for Word, PowerPoint, Excel, and OneNote.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://www.youtube.com/watch?v=WbSbKVSG9Fk" target="_blank" class="project-link">
+                                <i class="fas fa-play"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cengage MOSS</h3>
+                        <div class="project-company">Cengage Learning</div>
+                        <p class="project-description">
+                            Medical Office Simulation Software for training healthcare workers. Designed dashboards, 
+                            forms, and activity-building interfaces for medical office simulations.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://www.youtube.com/watch?v=7cxjh72tkwQ" target="_blank" class="project-link">
+                                <i class="fas fa-play"></i> Demo 1
+                            </a>
+                            <a href="https://youtu.be/TrmFZXlKwFo?si=zYaWLmtakfJ0KMIh&t=38" target="_blank" class="project-link">
+                                <i class="fas fa-play"></i> Demo 2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Measuring Up Live</h3>
+                        <div class="project-company">Mastery Education</div>
+                        <p class="project-description">
+                            Complete CMS + LMS frontend and backend for K-12 online assessments. 
+                            Comprehensive platform for educational assessment and progress tracking.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://measuringup.perfectionlearning.com/il-mul/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ThinkLink</h3>
+                        <div class="project-company">School Specialty</div>
+                        <p class="project-description">
+                            Next-gen education insights platform with real-time content workflows. 
+                            Built entire CMS + LMS for K-12 online assessments and analytics.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://thinklink.schoolspecialty.com/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EtonX Platform</h3>
+                        <div class="project-company">EtonX (UK)</div>
+                        <p class="project-description">
+                            Upgraded LMS & CMS systems using Open edX, improving learning experience 
+                            for global students with enhanced features and security.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://etonx.com/courses/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Best Student Halls</h3>
+                        <div class="project-company">Best Student Halls (UK)</div>
+                        <p class="project-description">
+                            Complete rebuild of student accommodation platform. Led tech department from scratch, 
+                            reducing costs by 80% while improving performance and user experience.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://www.beststudenthalls.com/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">OnleJobs (WIP)</h3>
+                        <div class="project-company">Personal Project</div>
+                        <p class="project-description">
+                            AI-enabled video-based virtual assistant recruitment platform. 
+                            Currently in development, featuring modern AI integration for hiring processes.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://onlejobs.com/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Comprehensive expertise across the full technology stack</p>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile Methodologies</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Business Analytics</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                        <span class="skill-tag">People Management</span>
+                        <span class="skill-tag">Change Management</span>
+                        <span class="skill-tag">Digital Transformation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python
