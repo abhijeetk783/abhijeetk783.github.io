@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhijeet Kamble - Technical Lead & Project Manager</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Abhijeet Kamble - Senior Backend Architect Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/favicon.jpg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --bg-primary: #1A1A2E;
+            --bg-secondary: #15152A;
+            --bg-tertiary: #2E3440;
+            --text-primary: #E0E0E0;
+            --text-secondary: #A0A0A0;
+            --accent: #00ADB5;
+            --accent-hover: #00D9E3;
+            --accent-dark: #008A91;
+        }
+
+        /* ===== Reset & Base Styles ===== */
         * {
             margin: 0;
             padding: 0;
@@ -17,434 +43,792 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ===== Typography ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
-        /* Navigation */
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* ===== Navigation Bar ===== */
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            height: 80px;
+            background: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        nav .container {
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
+            color: var(--text-primary);
             text-decoration: none;
-            color: #333;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #667eea;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease-in-out;
         }
 
-        /* Hero Section */
-        .hero {
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0, 173, 181, 0.5);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ===== Hero Section ===== */
+        #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            color: white;
-            text-align: center;
+            justify-content: center;
             position: relative;
+            padding: 100px 5% 80px;
+            background: var(--bg-primary);
             overflow: hidden;
         }
 
-        .hero::before {
+        #home::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 173, 181, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 173, 181, 0.08) 0%, transparent 50%);
+            animation: gentleGlow 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes gentleGlow {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0, 173, 181, 0.3);
+            object-fit: cover;
+            display: block;
             animation: fadeInUp 1s ease;
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
             animation: fadeInUp 1s ease 0.2s both;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero .description {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.8;
+        .hero-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
             animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            max-width: 700px;
+            margin: 20px auto;
+            animation: fadeInUp 1s ease 0.6s both;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 20px;
             justify-content: center;
+            margin-top: 30px;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
+            animation: fadeInUp 1s ease 0.8s both;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
+            padding: 12px 25px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
+            background-color: var(--accent);
+            color: var(--bg-primary);
         }
 
         .btn-primary:hover {
+            background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 173, 181, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+            background-color: transparent;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #667eea;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
             transform: translateY(-2px);
         }
 
-        /* Section Styles */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 24px;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* ===== Section Styles ===== */
         section {
-            padding: 5rem 0;
+            padding: 80px 5%;
         }
 
-        .section-white {
-            background: white;
-        }
-
-        .section-gray {
-            background: #f8f9fa;
-        }
-
-        .section-title {
+        .section-heading {
             text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            color: #666;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        /* ===== About Section ===== */
+        #about {
+            background: var(--bg-primary);
         }
 
-        /* About Section */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid #667eea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-text {
+        .about-content p {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
         }
 
-        .highlight {
-            color: #667eea;
-            font-weight: 600;
+        /* ===== Skills Section ===== */
+        #skills {
+            background: var(--bg-secondary);
         }
 
-        /* Experience Section */
-        .experience-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        /* Desktop (default) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .experience-item:hover {
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .skill-card {
+            background: var(--bg-primary);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .skill-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2);
+            border-color: var(--accent);
+        }
+
+        .skill-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .skill-item i {
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-right: 10px;
+            width: 24px;
+        }
+
+        .skill-item span {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-item:hover {
+            color: var(--accent);
+        }
+
+        .skill-item:hover i {
+            color: var(--accent);
+        }
+
+        /* Tooltip */
+        .skill-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+            margin-bottom: 5px;
+            z-index: 10;
+        }
+
+        .skill-item:hover .skill-tooltip {
+            opacity: 1;
+        }
+
+        /* ===== Experience Section ===== */
+        #experience {
+            background: var(--bg-primary);
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2);
         }
 
         .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
-        .experience-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
+        .experience-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 5px;
         }
 
         .experience-company {
-            font-size: 1.1rem;
-            color: #667eea;
-            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 5px;
         }
 
-        .experience-duration {
-            color: #666;
+        .experience-dates {
+            font-size: 1rem;
+            color: var(--text-secondary);
             font-style: italic;
+        }
+
+        .experience-summary {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 15px;
         }
 
         .experience-achievements {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 15px;
         }
 
         .experience-achievements li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            padding-left: 25px;
             position: relative;
         }
 
         .experience-achievements li::before {
-            content: '▶';
+            content: '▸';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--accent);
+            font-size: 1.2rem;
         }
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+        .key-projects {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .project-company {
-            color: #667eea;
+        .key-projects h4 {
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
         }
 
-        .project-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.5rem 1rem;
-            background: #667eea;
-            color: white;
+        .key-projects a {
+            color: var(--accent);
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background 0.3s ease;
+            font-size: 1rem;
+            transition: text-decoration 0.3s ease-in-out;
         }
 
-        .project-link:hover {
-            background: #5a6fd8;
-        }
-
-        /* Skills Section */
-        .skills-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #f1f3f4;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            color: #333;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            border-color: #667eea;
-            background: #e8f0fe;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
+        .key-projects a:hover {
             text-decoration: underline;
         }
 
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
+        /* ===== Projects Section ===== */
+        #projects {
+            background: var(--bg-secondary);
         }
 
-        /* Animations */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 173, 181, 0.3);
+        }
+
+        .project-icon {
+            font-size: 48px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .project-achievement {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .project-achievement strong {
+            color: var(--accent);
+        }
+
+        .btn-view-case {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-view-case:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ===== Project Modal ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px 5%;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        .modal-content h2 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p,
+        .modal-content li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .modal-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .modal-caption {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ===== Education Section ===== */
+        #education {
+            background: var(--bg-primary);
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .education-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .education-card p {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        /* ===== Contact Section ===== */
+        #contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: text-decoration 0.3s ease-in-out;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .availability {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 20px;
+        }
+
+        /* ===== Animations ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -456,451 +840,386 @@
             }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease both;
+        }
 
-            .hero h1 {
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            h1 {
                 font-size: 2.5rem;
             }
 
-            .hero .subtitle {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
                 font-size: 1.2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero-description {
+                font-size: 1rem;
             }
 
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .education-container {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(102, 126, 234, 0.3);
-            z-index: 1001;
+        @media (max-width: 480px) {
+            nav {
+                padding: 0 3%;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 3%;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
         }
 
+        /* ===== Scroll Progress Indicator ===== */
         .scroll-progress {
-            height: 100%;
-            background: #667eea;
+            position: fixed;
+            top: 80px;
+            left: 0;
             width: 0%;
-            transition: width 0.3s ease;
+            height: 3px;
+            background: var(--accent);
+            z-index: 99;
+            transition: width 0.1s ease;
         }
     </style>
 </head>
 <body>
     <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav>
-        <div class="container">
-            <div class="logo">Abhijeet Kamble</div>
+        <div class="nav-container">
+            <a href="#home" class="logo">Abhijeet Kamble</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Abhijeet Kamble</h1>
-                <p class="subtitle">Technical Lead & Project Manager</p>
-                <p class="description">
-                    7.5 years of hands-on experience in IT with expertise in EdTech solutions, 
-                    full-stack development, and leading cross-functional teams. Currently pursuing 
-                    Master's in Information Systems at DePaul University with 4.0 GPA.
-                </p>
-                <div class="cta-buttons">
-                    <a href="mailto:abhijeetk783@gmail.com" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Get In Touch
-                    </a>
-                    <a href="https://www.linkedin.com/in/abhikamble" class="btn btn-secondary">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="tel:+13128749341" class="btn btn-secondary">
-                        <i class="fas fa-phone"></i> Call Me
-                    </a>
-                </div>
+    <section id="home">
+        <div class="hero-content">
+            <img src="assets/images/headshot.jpeg" alt="Abhijeet Kamble" class="profile-image">
+            <h1>ABHIJEET KAMBLE</h1>
+            <p class="hero-subtitle">Senior Backend Engineer | Distributed Systems | Data-Driven | Cloud-Native Architecture</p>
+            <p class="hero-description">
+                Building scalable, secure, and cost-optimized backend platforms for high-growth products, with experience across Fintech, Edtech, SaaS, and consumer-facing platforms.
+
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> Explore My Projects
+                </a>
+                <a href="assets/CV/Abhijeet_Kamble_Resume_SE_7-5_Years_Exp.pdf" download="Abhijeet_Kamble_Resume.pdf" class="btn btn-secondary">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/abhikamble" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/abhijeetk783" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:abhijeetk783@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-white">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/images/headshot.jpg" alt="Abhijeet Kamble">
-                </div>
-                <div class="about-text">
-                    <p>I'm currently pursuing a <span class="highlight">Master's in Information Systems at DePaul University (4.0 GPA)</span>, with a specialization in Project Management. My journey in technology spans over 7.5 years, with 5 years dedicated to the EdTech domain.</p>
-                    
-                    <p>At <span class="highlight">Zeus Learning</span>, I worked with major global clients like <span class="highlight">Cengage, Mastery Education, School Specialty, and EtonX</span>, delivering full-scale Learning and Content Management Systems that impact thousands of students worldwide.</p>
-                    
-                    <p>In my recent role as <span class="highlight">Technical Lead at Best Student Halls (UK)</span>, I built and led their entire in-house tech department from scratch, reducing technology costs by 80% while improving system efficiency and user experience.</p>
-                    
-                    <p>I'm passionate about <span class="highlight">digital transformation, agile methodologies, and creating scalable solutions</span> that make a real difference in education and business operations.</p>
-                </div>
-            </div>
+    <section id="about">
+        <div class="section-heading">
+            <h2>About Me</h2>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section-gray">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">A journey through impactful roles and achievements</p>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Grader</div>
-                        <div class="experience-company">DePaul University - College of Computing and Digital Media</div>
-                    </div>
-                    <div class="experience-duration">Sept 2024 - Present</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Evaluated weekly assignments and provided constructive feedback to enhance student learning and performance</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Technical Lead</div>
-                        <div class="experience-company">Best Student Halls, UK (Remote)</div>
-                    </div>
-                    <div class="experience-duration">April 2021 - Nov 2023</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Established and led the technology department by recruiting tech and design professionals to develop and launch several web applications for students seeking international education and housing</li>
-                    <li>Migrated legacy system from external vendor to in-house platform, reducing system downtime by 50%</li>
-                    <li>Redesigned system architecture and developed alternatives for third-party integrations, reducing application costs by 80%</li>
-                    <li>Enhanced application performance resulting in 40% increase in conversion rate, earning recognition from leadership and industry peers</li>
-                    <li>Developed comprehensive technical documentation for system architecture redesign</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Module Lead</div>
-                        <div class="experience-company">Zeus Learning, Mumbai</div>
-                    </div>
-                    <div class="experience-duration">July 2020 - April 2021</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Led a team of 4 for UK-based client to develop newer version of Learning Management System (LMS) based on Open edX platform</li>
-                    <li>Collaborated with international teams across different time zones, delivering enhanced features and security</li>
-                    <li>Developed data-driven solutions for product development with data visualization models</li>
-                    <li>Performed data analysis to calculate free-to-paid subscription conversion rates for strategic insights</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Module Lead</div>
-                        <div class="experience-company">Zeus Learning, Mumbai</div>
-                    </div>
-                    <div class="experience-duration">Oct 2019 - June 2020</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Led a team of 10 to develop Content Management System (CMS) for USA-based client, targeted for K-12 education</li>
-                    <li>Enhanced application compatibility and interoperability with third-party platforms</li>
-                    <li>Served as Scrum Master, conducting daily stand-ups, sprint planning, and retrospectives</li>
-                    <li>Collaborated with cross-functional teams across UI/UX, SMEs, QA, and stakeholders in India and USA</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Senior Software Engineer</div>
-                        <div class="experience-company">Zeus Learning, Mumbai</div>
-                    </div>
-                    <div class="experience-duration">Jan 2018 - Sept 2019</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Led a team of 6 for USA-based client to design and develop LMS features for K-12 education</li>
-                    <li>Optimized data computation jobs by 90%, reducing overall processing time by 8 hours</li>
-                    <li>Conducted comprehensive analysis for Microsoft Azure to AWS migration, providing critical insights and SOW</li>
-                    <li>Mentored subordinates, increasing average team efficiency</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Senior Software Engineer</div>
-                        <div class="experience-company">Zeus Learning, Mumbai</div>
-                    </div>
-                    <div class="experience-duration">June 2016 - Dec 2017</div>
-                </div>
-                <ul class="experience-achievements">
-                    <li>Developed learning simulations for Microsoft Office applications (Word, PowerPoint, Excel, OneNote)</li>
-                    <li>Developed "Medical office simulation software" to enhance understanding of OpenEMR-based EMR systems</li>
-                    <li>Programmed report module leveraging computed user performance data</li>
-                    <li>Upgraded applications with accessibility features for blind and motor-disabled users</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-white">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Impactful solutions delivered for global clients</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cengage SAM</h3>
-                        <div class="project-company">Cengage Learning</div>
-                        <p class="project-description">
-                            Microsoft Office simulation-based learning tools used across universities worldwide. 
-                            Built interactive simulations for Word, PowerPoint, Excel, and OneNote.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://www.youtube.com/watch?v=WbSbKVSG9Fk" target="_blank" class="project-link">
-                                <i class="fas fa-play"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cengage MOSS</h3>
-                        <div class="project-company">Cengage Learning</div>
-                        <p class="project-description">
-                            Medical Office Simulation Software for training healthcare workers. Designed dashboards, 
-                            forms, and activity-building interfaces for medical office simulations.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://www.youtube.com/watch?v=7cxjh72tkwQ" target="_blank" class="project-link">
-                                <i class="fas fa-play"></i> Demo 1
-                            </a>
-                            <a href="https://youtu.be/TrmFZXlKwFo?si=zYaWLmtakfJ0KMIh&t=38" target="_blank" class="project-link">
-                                <i class="fas fa-play"></i> Demo 2
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Measuring Up Live</h3>
-                        <div class="project-company">Mastery Education</div>
-                        <p class="project-description">
-                            Complete CMS + LMS frontend and backend for K-12 online assessments. 
-                            Comprehensive platform for educational assessment and progress tracking.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://measuringup.perfectionlearning.com/il-mul/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ThinkLink</h3>
-                        <div class="project-company">School Specialty</div>
-                        <p class="project-description">
-                            Next-gen education insights platform with real-time content workflows. 
-                            Built entire CMS + LMS for K-12 online assessments and analytics.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://thinklink.schoolspecialty.com/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">EtonX Platform</h3>
-                        <div class="project-company">EtonX (UK)</div>
-                        <p class="project-description">
-                            Upgraded LMS & CMS systems using Open edX, improving learning experience 
-                            for global students with enhanced features and security.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://etonx.com/courses/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Best Student Halls</h3>
-                        <div class="project-company">Best Student Halls (UK)</div>
-                        <p class="project-description">
-                            Complete rebuild of student accommodation platform. Led tech department from scratch, 
-                            reducing costs by 80% while improving performance and user experience.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://www.beststudenthalls.com/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Site
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">OnleJobs (WIP)</h3>
-                        <div class="project-company">Personal Project</div>
-                        <p class="project-description">
-                            AI-enabled video-based virtual assistant recruitment platform. 
-                            Currently in development, featuring modern AI integration for hiring processes.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://onlejobs.com/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Preview
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+        <div class="about-content">
+            <p>
+                I am a Senior Backend Engineer with extensive experience designing and building scalable, secure, and cost-efficient backend systems for high-traffic, production-grade products. My work focuses on distributed systems, cloud-native architecture, microservices, and data-driven platforms.
+            </p>
+            <p>
+                I have a proven track record of leading engineering teams and owning backend systems end-to-end, working closely with clients and stakeholders across the United States, India, and the United Kingdom. My work across multiple products has driven measurable improvements in performance, infrastructure cost, and system reliability.
+            </p>
+            <p>
+                I enjoy working close to core business problems, where system design, correctness, and long-term scalability matter. I approach engineering with a balance of hands-on execution and strategic thinking, building systems that are designed to evolve as products grow.
+            </p>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section-gray">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-subtitle">Comprehensive expertise across the full technology stack</p>
-            
-            <div class="skills-categories">
-                <div class="skill-category">
-                    <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Agile Methodologies</span>
-                        <span class="skill-tag">Scrum</span>
-                        <span class="skill-tag">Business Analytics</span>
-                        <span class="skill-tag">Stakeholder Management</span>
-                        <span class="skill-tag">Technical Documentation</span>
-                        <span class="skill-tag">People Management</span>
-                        <span class="skill-tag">Change Management</span>
-                        <span class="skill-tag">Digital Transformation</span>
+    <section id="skills">
+        <div class="section-heading">
+            <h2>Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages & Frameworks</h3>
+                <p>Designing and building scalable backend systems using production-ready languages and frameworks.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                        <div class="skill-tooltip">Expert in Python for backend development and data processing</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Django</span>
+                        <div class="skill-tooltip">Production-grade web frameworks and backend systems</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <span> C#</span>
+                        <div class="skill-tooltip">Backend development for enterprise and service-oriented applications</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-microsoft"></i>
+                        <span>.NET</span>
+                        <div class="skill-tooltip">ASP.NET Core and MVC for scalable backend platforms</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                        <div class="skill-tooltip">Experience with Java for backend services and enterprise systems</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript / Node.js</span>
+                        <div class="skill-tooltip">Supporting backend workflows and frontend integration</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">REST API</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">.NET Core</span>
-                        <span class="skill-tag">ASP.NET MVC</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
+            <div class="skill-card">
+                <h3>Cloud & <br>Infrastructure</h3>
+                <p>Cloud platforms and infrastructure used to build and operate scalable, reliable backend systems.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                        <div class="skill-tooltip">Designing and operating scalable cloud infrastructure on AWS</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-microsoft"></i>
+                        <span>Azure</span>
+                        <div class="skill-tooltip">Experience building and migrating backend systems on Azure</div>
+                    </div>                 
+                    <div class="skill-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                        <div class="skill-tooltip">Containerizing applications for consistent and portable deployments</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cube"></i>
+                        <span>Kubernetes</span>
+                        <div class="skill-tooltip">Orchestrating containerized services for scalability and reliability</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Nginx</span>
+                        <div class="skill-tooltip">Reverse proxy, load balancing, and secure traffic routing</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>CI/CD</span>
+                        <div class="skill-tooltip">Automated build, test, and deployment pipelines</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MS SQL Server</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                        <span class="skill-tag">RabbitMQ</span>
-                        <span class="skill-tag">Memcached</span>
+            <div class="skill-card">
+                <h3>Databases & <br>Messaging Systems</h3>
+                <p>Deep knowledge of database systems and data processing frameworks for large-scale applications.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
+                        <div class="skill-tooltip">Relational database design, indexing, and query optimization</div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Nginx</span>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>PostgreSQL</span>
+                        <div class="skill-tooltip">Schema design, performance tuning, and production reliability</div>
                     </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL Server</span>
+                        <div class="skill-tooltip">Stored procedures, execution plans, and large workload optimization</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>MongoDB</span>
+                        <div class="skill-tooltip">Document storage, replication, and scalable NoSQL design</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-memory"></i>
+                        <span>Redis</span>
+                        <div class="skill-tooltip">Caching, rate limiting primitives, and low-latency data access</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-stream"></i>
+                        <span>Kafka</span>
+                        <div class="skill-tooltip">Event-driven pipelines and real-time message processing</div>
+                    </div>
+                      
                 </div>
+            </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">SonarQube</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Visual Studio</span>
-                        <span class="skill-tag">SSMS</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Metabase</span>
+            <div class="skill-card">
+                <h3>System Design & <br>Architecture</h3>
+                <p>Designing scalable, distributed systems with a focus on reliability, performance, and long-term maintainability.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Microservices Architecture</span>
+                        <div class="skill-tooltip">Designing loosely coupled, independently deployable services</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-server"></i>
+                        <span>Distributed Systems</span>
+                        <div class="skill-tooltip">Building fault-tolerant systems that scale horizontally</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>API Design</span>
+                        <div class="skill-tooltip">Designing stable, versioned APIs for internal and external consumers</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-memory"></i>
+                        <span>Caching Strategies</span>
+                        <div class="skill-tooltip">Improving performance using Redis, Memcached, and cache-aware design</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Load Balancing</span>
+                        <div class="skill-tooltip">Distributing traffic to improve reliability and throughput</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Performance Optimization</span>
+                        <div class="skill-tooltip">Identifying and resolving system and database bottlenecks</div>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Product & <br>Delivery</h3>
+                <p>Managing and delivering complex backend systems through close collaboration and predictable execution.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Agile (Scrum)</span>
+                        <div class="skill-tooltip">Delivering software iteratively using Agile and Scrum practices</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Project Management</span>
+                        <div class="skill-tooltip">Planning, coordinating, and executing engineering initiatives</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-users"></i>
+                        <span>Stakeholder Collaboration</span>
+                        <div class="skill-tooltip">Working closely with product, business, and external clients</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Technical Documentation</span>
+                        <div class="skill-tooltip">Creating clear documentation for systems, APIs, and workflows</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Jira & Confluence</span>
+                        <div class="skill-tooltip">Planning, tracking, and documenting work across teams</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-route"></i>
+                        <span>Delivery Planning</span>
+                        <div class="skill-tooltip">Breaking down complex work into achievable delivery milestones</div>
+                    </div>
+                                            
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Applied AI & <br>Automation</h3>
+                <p>Applying AI and automation to enhance developer productivity, streamline workflows, and solve practical product problems.</p>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Rasa</span>
+                        <div class="skill-tooltip">Designing conversational assistants using intents, entities, and dialogue flows</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-language"></i>
+                        <span>NLP / NLU</span>
+                        <div class="skill-tooltip">Applying natural language understanding for conversational and automation use cases</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <span>OpenAI API</span>
+                        <div class="skill-tooltip">Integrating LLMs for intelligent features and backend automation</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Agentic Workflows</span>
+                        <div class="skill-tooltip">Designing multi-step, tool-driven AI workflows for task automation</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Automation Pipelines</span>
+                        <div class="skill-tooltip">Automating backend processes and operational workflows</div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-magic"></i>
+                        <span>GitHub Copilot</span>
+                        <div class="skill-tooltip">Leveraging AI-assisted development to improve code quality and speed</div>
                     </div>
                 </div>
             </div>
@@ -908,26 +1227,725 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="certifications" class="section-white">
-        <div class="container">
-            <h2 class="section-title">Professional Certifications</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-company">Practical Application of Gen AI for Project Managers (PMI)</div>
-                    </div>
+    <section id="experience">
+        <div class="section-heading">
+        <h2>Professional Experience</h2>
+        </div>
+    
+        <div class="experience-container">
+    
+        <!-- Rypil Technologies -->
+        <div class="experience-card">
+            <div class="experience-header">
+            <h3>Senior Software Engineer</h3>
+            <div class="experience-company">Rypil Technologies</div>
+            <div class="experience-dates">Jul 2025 – Present</div>
+            </div>
+    
+            <p class="experience-summary">
+            Building backend systems for a fintech platform, with a focus on transaction workflows, integrations,
+            and cloud-native architecture.
+            </p>
+    
+            <ul class="experience-achievements">
+            <li>Designed and implemented backend services integrating Stripe and Plaid for secure payment and transaction workflows</li>
+            <li>Built transaction processing and ledger logic to track balances and support auditability</li>
+            <li>Implemented structured logging for API calls and monetary flows to improve traceability and debugging</li>
+            <li>Worked with AWS services including EC2, Lambda, S3, RDS, DynamoDB, and Secrets Manager</li>
+            <li>Collaborated with product and business stakeholders to translate requirements into backend systems</li>
+            </ul>
+    
+            <div class="key-projects">
+                <h4>Key Projects:</h4>
+                <a href="https://rypil.com" target="_blank" rel="noopener noreferrer">Rypil Consumer Platform</a> |
+                <a href="https://rypilpartner.com" target="_blank" rel="noopener noreferrer">Rypil Partner Platform</a>
+            </div>
+        </div>
+    
+        <!-- Best Student Halls -->
+        <div class="experience-card">
+            <div class="experience-header">
+            <h3>Technical Lead</h3>
+            <div class="experience-company">Best Student Halls</div>
+            <div class="experience-dates">Apr 2021 – Nov 2023</div>
+            </div>
+    
+            <p class="experience-summary">
+            Built and led the in-house engineering function, reducing technology costs by 80% while improving reliability,
+            performance, and user experience.
+            </p>
+    
+            <ul class="experience-achievements">
+            <li>Established and led the internal technology team, owning system design and delivery</li>
+            <li>Migrated platform from third-party vendor solutions to an in-house backend, reducing downtime by 50%</li>
+            <li>Redesigned system architecture and replaced costly third-party integrations, reducing technology costs by 80%</li>
+            <li>Improved backend performance and application flow, contributing to a 40% increase in conversion rate</li>
+            <li>Worked with cross-functional teams and stakeholders across India, and the United Kingdom</li>
+            </ul>
+    
+            <div class="key-projects">
+                <h4>Key Projects:</h4>
+                <a href="https://www.beststudenthalls.com/" target="_blank" rel="noopener noreferrer">
+                Best Student Halls Platform
+                </a> |
+                <a href="https://www.uscholars.in/" target="_blank" rel="noopener noreferrer">
+                UScholars Platform
+                </a>
+            </div>
+        </div>
+    
+        <!-- Zeus Learning -->
+        <div class="experience-card">
+            <div class="experience-header">
+            <h3>Module Lead</h3>
+            <div class="experience-company">Zeus Learning</div>
+            <div class="experience-dates">Jun 2016 – Apr 2021</div>
+            </div>
+    
+            <p class="experience-summary">
+            Led backend development for large-scale edtech platforms and content systems, focusing on performance,
+            reliability, and delivery excellence.
+            </p>
+    
+            <ul class="experience-achievements">
+            <li>Led teams of 4–10 engineers building CMS/LMS platforms for K–12 and higher-education clients</li>
+            <li>Designed course authoring systems with draft, versioning, and publishing workflows</li>
+            <li>Optimized SQL Server stored procedures and queries, reducing long-running jobs by ~90% (8+ hour workloads)</li>
+            <li>Set up a 3-node MongoDB replica set on EC2 to support high availability and draft content workflows</li>
+            <li>Contributed to accessibility improvements aligned with WCAG guidelines</li>
+            </ul>
+    
+            <div class="key-projects">
+                <h4>Key Projects:</h4>
+                <a href="https://www.youtube.com/watch?v=WbSbKVSG9Fk" target="_blank" rel="noopener noreferrer">
+                Cengage SAM
+                </a> |
+                <a href="https://www.youtube.com/watch?v=7cxjh72tkwQ" target="_blank" rel="noopener noreferrer">
+                Cengage MOSS
+                </a> |
+                <a href="https://measuringup.perfectionlearning.com/il-mul/" target="_blank" rel="noopener noreferrer">
+                Measuring Up Live
+                </a> |
+                <a href="https://thinklink.schoolspecialty.com/" target="_blank" rel="noopener noreferrer">
+                ThinkLink
+                </a> |
+                <a href="https://etonx.com/courses/" target="_blank" rel="noopener noreferrer">
+                EtonX Platform
+                </a>
+            </div>
+              
+        </div>
+    
+        </div>
+    </section>
+      
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-heading">
+            <h2>Projects, Case Studies & Prototypes</h2>
+        </div>
+        <div class="projects-grid">
+            <!-- OnleJobs -->
+            <div class="project-card" data-project="onlejobs">
+                <div class="project-icon">
+                <i class="fas fa-briefcase"></i>
                 </div>
+                <h3>OnleJobs</h3>
+                <p>
+                Video-based hiring platform focused on remote virtual assistants. Built as a full-stack product with emphasis on
+                backend reliability, deployment, and secure public access patterns.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Production deployment and end-to-end ownership (backend + infra).
+                </p>
+                <a class="btn-view-case" href="https://onlejobs.com/" target="_blank" rel="noopener noreferrer">
+                View Live
+                </a>
             </div>
             
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-company">Generative AI Overview for Project Managers (PMI)</div>
-                    </div>
+            <!-- DeConnect -->
+            <div class="project-card" data-project="deconnect">
+                <div class="project-icon">
+                <i class="fas fa-link"></i>
                 </div>
+
+                <h3>DeConnect</h3>
+                <p>
+                A dedicated networking platform for DePaul University to connect students and faculty through profiles, feeds,
+                search, connections, and real-time chat.
+                </p>
+
+                <p class="project-achievement">
+                <strong>Highlight:</strong> End-to-end product build with structured workflows and maintainable architecture.
+                </p>
+
+                <button class="btn-view-case" onclick="openModal('deconnect')">View Case Study</button>
+            </div>
+  
+            
+            <!-- Apache setup automation -->
+            <div class="project-card" data-project="apache-setup">
+                <div class="project-icon">
+                <i class="fas fa-server"></i>
+                </div>
+                <h3>Automated Apache Setup (Ubuntu)</h3>
+                <p>
+                Shell script to automate Apache installation and baseline configuration on Ubuntu servers for quick, repeatable setup.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Faster server provisioning with consistent configuration.
+                </p>
+                <a class="btn-view-case" href="https://github.com/abhijeetk783/shellscript-apache-setup" target="_blank" rel="noopener noreferrer">
+                View Repo
+                </a>
+            </div>
+            
+            <!-- Docker setup automation -->
+            <div class="project-card" data-project="docker-setup">
+                <div class="project-icon">
+                <i class="fab fa-docker"></i>
+                </div>
+                <h3>Automated Docker Setup (Ubuntu)</h3>
+                <p>
+                Shell script to automate Docker installation and initial setup on Ubuntu for consistent developer and deployment environments.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Repeatable environment setup with minimal manual steps.
+                </p>
+                <a class="btn-view-case" href="https://github.com/abhijeetk783/shellscript-docker-setup" target="_blank" rel="noopener noreferrer">
+                View Repo
+                </a>
+            </div>
+            
+            <!-- Backend performance & data reliability (no public link) -->
+            <div class="project-card" data-project="data-reliability">
+                <div class="project-icon">
+                <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Backend Performance & Data Reliability</h3>
+                <p>
+                Case-study highlights from production systems: SQL Server performance optimization, long-running job reduction,
+                and high-availability data setup for content workflows.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlights:</strong> SQL runtime reduced ~90% (8+ hour workloads), MongoDB 3-node replication on EC2.
+                </p>
+                <button class="btn-view-case" onclick="openModal('data-reliability')">View Case Study</button>
+            </div>
+
+            <div class="project-card" data-project="mongodb-replication">
+                <div class="project-icon">
+                  <i class="fas fa-database"></i>
+                </div>
+                <h3>MongoDB Replication & High Availability</h3>
+                <p>
+                  Designed and implemented a MongoDB replica set using three EC2 instances to support
+                  high availability, fault tolerance, and reliable content workflows.
+                </p>
+                <p class="project-achievement">
+                  <strong>Highlight:</strong> Improved system reliability and supported draft/publish workflows without data loss.
+                </p>
+                <button class="btn-view-case" onclick="openModal('mongodb-replication')">
+                  View Case Study
+                </button>
+            </div>
+
+            <div class="project-card" data-project="api-gateway">
+                <div class="project-icon">
+                <i class="fas fa-network-wired"></i>
+                </div>
+            
+                <h3>API Gateway & Backend Services (AWS + Django)</h3>
+            
+                <p>
+                Architecture case study and reference implementation using AWS API Gateway, Nginx, and Django services on EC2,
+                focusing on security, correctness, and scalable design.
+                </p>
+            
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Clear separation of gateway, proxy, and application layers with JWT-based access control.
+                </p>
+            
+                <button class="btn-view-case" onclick="openModal('api-gateway')">View Case Study</button>
+            </div>
+            
+            <div class="project-card" data-project="content-delivery">
+                <div class="project-icon">
+                <i class="fas fa-cloud"></i>
+                </div>
+            
+                <h3>Scalable Content Delivery</h3>
+            
+                <p>
+                Architecture case study for delivering protected content using object storage, CDN distribution,
+                and backend-controlled access patterns.
+                </p>
+            
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Faster content access and reduced backend load through CDN usage and query optimization.
+                </p>
+            
+                <button class="btn-view-case" onclick="openModal('content-delivery')">View Case Study</button>
+            </div>
+              
+            
+            <!-- GoSplitSpace pitch -->
+            <div class="project-card" data-project="gosplitspace-pitch">
+                <div class="project-icon">
+                <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>GoSplitSpace Product Pitch</h3>
+                <p>
+                Product pitch presentation for a student accommodation marketplace concept focused on verified listings and anti-scam mechanisms.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Clear problem framing, solution differentiation, and MVP feature logic.
+                </p>
+                <a class="btn-view-case" href="https://www.pechakucha.com/presentations/is431-product-pitch-gosplitspace-abhijeet-kamble" target="_blank" rel="noopener noreferrer">
+                Watch
+                </a>
+            </div>
+            
+            <!-- Process-aware information systems presentation -->
+            <div class="project-card" data-project="process-aware-systems">
+                <div class="project-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Process-Aware Information Systems</h3>
+                <p>
+                Presentation on Process-Aware Information Systems, focusing on how systems support business processes and execution visibility.
+                </p>
+                <p class="project-achievement">
+                <strong>Highlight:</strong> Clear explanation of concepts with practical framing.
+                </p>
+                <a class="btn-view-case" href="https://youtu.be/aupi9hNvAeA" target="_blank" rel="noopener noreferrer">
+                Watch
+                </a>
+            </div>
+  
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-heading">
+            <h2>Education</h2>
+        </div>
+        <div class="education-container">
+            <div class="education-card">
+                <h3>DePaul University</h3>
+                <p><strong>Masters, Information System</strong></p>
+                <p>GPA: 4.0</p>
+                <p>Chicago, IL, USA</p>
+            </div>
+            <div class="education-card">
+                <h3>Mumbai University</h3>
+                <p><strong>Bachelor, Computer Engineering</strong></p>
+                <p>Mumbai, India</p>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-heading">
+            <h2>Let's Connect</h2>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:abhijeetk783@gmail.com">abhijeetk783@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fab fa-linkedin"></i> 
+                    <a href="https://www.linkedin.com/in/abhikamble" target="_blank">LinkedIn Profile</a>
+                </p>
+                <p>
+                    <i class="fab fa-github"></i> 
+                    <a href="https://github.com/abhijeetk783" target="_blank">GitHub Profile</a>
+                </p>
+                <p>
+                    <i class="fas fa-file-pdf"></i> 
+                    <a href="assets/CV/Abhijeet_Kamble_Resume_SE_7-5_Years_Exp.pdf" download="Abhijeet_Kamble_Resume.pdf">Download Resume</a>
+                </p>
+                <p class="availability">
+                    I am currently open to new opportunities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content" id="modalContent">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Project data for modals
+        const projectData = {
+            'deconnect': {
+                title: 'DeConnect',
+                content: `
+                    <h3>Overview</h3>
+                    <p>
+                    DeConnect is a DePaul-focused networking platform designed to build meaningful connections between students and faculty.
+                    It provides a cohesive space for engagement, collaboration, and professional growth.
+                    </p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                    <li><strong>Login / Register:</strong> Secure authentication and onboarding</li>
+                    <li><strong>User Profiles:</strong> Customizable profiles with academic and professional details</li>
+                    <li><strong>Feed:</strong> Create, view, like, comment, share posts</li>
+                    <li><strong>Search:</strong> Find people, posts, and relevant resources</li>
+                    <li><strong>Connections:</strong> Send and manage connection requests</li>
+                    <li><strong>Chat:</strong> Real-time messaging between connections</li>
+                    <li><strong>Notifications:</strong> Updates for activity, requests, and messages</li>
+                    </ul>
+
+                    <h3>Links</h3>
+                    <ul>
+                    <li>
+                        <a href="https://github.com/abhijeetk783/DeConnect" target="_blank" rel="noopener noreferrer">View Repository</a>
+                    </li>
+                    <li>
+                        <a href="https://drive.google.com/file/d/1JeNTcWt8bVERT8lgB8z46aPX-UR2SqXT/view?usp=drive_link"
+                        target="_blank" rel="noopener noreferrer">Watch Demo</a>
+                    </li>
+                    </ul>
+
+                    <h3>Goal</h3>
+                    <p>
+                    Streamline networking within the DePaul community, increase engagement, and enable stronger professional relationships.
+                    </p>
+                `
+            },
+            'data-reliability': {
+                title: 'Backend Performance & Data Reliability',
+                content: `
+                    <h3>Overview</h3>
+                    <p>
+                    A set of production-focused improvements aimed at reducing latency, increasing reliability, and supporting
+                    large workloads through database tuning and resilient data architecture.
+                    </p>
+
+                    <h3>Key Work</h3>
+                    <ul>
+                    <li><strong>SQL Server Optimization:</strong> Tuned stored procedures, CTE-heavy queries, and execution plans for long-running workloads</li>
+                    <li><strong>Performance Profiling:</strong> Identified bottlenecks using query metrics, plan analysis, and targeted indexing</li>
+                    <li><strong>Reliability Improvements:</strong> Improved operational stability for critical workflows and reduced failure-prone steps</li>
+                    <li><strong>Observability Mindset:</strong> Added structured logging and diagnostics to make issues traceable and reproducible</li>
+                    </ul>
+
+                    <h3>Impact</h3>
+                    <ul>
+                    <li><strong>Reduced runtime by ~90%</strong> for long-running SQL workloads (8+ hour jobs)</li>
+                    <li><strong>Improved reliability</strong> for key workflows by reducing performance-related failures and timeouts</li>
+                    </ul>
+
+                    <h3>Notes</h3>
+                    <p>
+                    This case study summarizes real production work. Specific client details and proprietary implementations are omitted.
+                    </p>
+                `
+            },
+            'mongodb-replication': {
+                title: 'MongoDB Replication & High Availability',
+                content: `
+                    <h3>Overview</h3>
+                    <p>
+                    Implemented a MongoDB replica set across three EC2 instances to support high availability, fault tolerance,
+                    and reliable content workflows.
+                    </p>
+
+                    <h3>Architecture</h3>
+                    <ul>
+                    <li><strong>Replica Set:</strong> 3-node setup to maintain data availability and automatic failover</li>
+                    <li><strong>Deployment:</strong> Provisioned and configured nodes on EC2 with environment-specific settings</li>
+                    <li><strong>Operational Readiness:</strong> Ensured safe replication behavior and stable reads/writes under failure scenarios</li>
+                    </ul>
+
+                    <h3>Use Case</h3>
+                    <p>
+                    Supported draft/publish and content versioning workflows where data consistency and availability are critical.
+                    </p>
+
+                    <h3>Impact</h3>
+                    <ul>
+                    <li><strong>Improved availability</strong> for content-related workflows through redundancy and failover</li>
+                    <li><strong>Reduced operational risk</strong> by avoiding single-node dependency for critical data</li>
+                    </ul>
+
+                    <h3>Notes</h3>
+                    <p>
+                    This case study summarizes real production work. Specific infrastructure details are generalized to avoid sharing proprietary information.
+                    </p>
+                `
+            },
+            'content-delivery': {
+                title: 'Scalable Content Delivery (Auth-Bound Access, CDN & Caching)',
+                content: `
+                    <h3>Overview</h3>
+                    <p>
+                    Architecture case study for delivering protected and public content using object storage, CDN distribution,
+                    and backend-controlled access, with a focus on performance, correctness, and scalable design.
+                    </p>
+
+                    <h3>Architecture</h3>
+                    <ul>
+                    <li><strong>Object Storage (S3-compatible):</strong> Stored static assets and media files</li>
+                    <li><strong>CDN Layer:</strong> Edge delivery to reduce latency and minimize origin requests</li>
+                    <li><strong>Django Backend:</strong> Enforced authentication and authorization before granting content access</li>
+                    <li><strong>Data Acceleration:</strong> Database views used to optimize repeated content-related queries</li>
+                    </ul>
+
+                    <h3>Access Control</h3>
+                    <ul>
+                    <li>Auth-bound access where backend validates user permissions before allowing content retrieval</li>
+                    <li>Clear separation between content storage and access logic</li>
+                    <li>Support for both public and restricted content paths</li>
+                    </ul>
+
+                    <h3>Performance & Scalability</h3>
+                    <ul>
+                    <li>CDN used to serve frequently accessed content closer to users</li>
+                    <li>Database views reduced query complexity and improved response times for content metadata</li>
+                    <li>Cache-friendly patterns designed to scale as traffic increases</li>
+                    </ul>
+
+                    <h3>Outcome</h3>
+                    <ul>
+                    <li>Improved perceived load times after introducing CDN and query optimization</li>
+                    <li>Reduced backend load by minimizing repeated database computations</li>
+                    <li>Established a reusable content delivery pattern applicable to content-heavy platforms</li>
+                    </ul>
+                `
+            },
+            'api-gateway': {
+                title: 'API Gateway & Backend Services (AWS + Django)',
+                content: `
+                    <h3>Overview</h3>
+                    <p>
+                    Architecture case study and reference implementation for an API gateway setup built on AWS, designed to route
+                    traffic to Django-based backend services with a focus on correctness, security, and scalability.
+                    </p>
+                    <p>
+                    This case study reflects hands-on implementation combined with best practices for building backend systems
+                    designed to scale beyond initial traffic volumes.
+                    </p>
+
+                    <h3>Architecture</h3>
+                    <ul>
+                    <li><strong>AWS API Gateway:</strong> Entry point for client requests and request routing</li>
+                    <li><strong>Nginx (Reverse Proxy):</strong> Forwarded requests to backend services and handled request normalization</li>
+                    <li><strong>Django Backend:</strong> Business logic, authentication, and data access</li>
+                    <li><strong>EC2:</strong> Hosted backend services with controlled deployment and scaling</li>
+                    </ul>
+
+                    <h3>Security & Access Control</h3>
+                    <ul>
+                    <li>JWT-based authentication implemented at the application layer</li>
+                    <li>Secure API endpoints with token validation and role-based access checks</li>
+                    <li>HTTPS enforced across all client-facing endpoints</li>
+                    </ul>
+
+                    <h3>Scalability & Reliability (Design Focus)</h3>
+                    <ul>
+                    <li>Stateless Django services to allow horizontal scaling on EC2</li>
+                    <li>Architecture designed to support increasing traffic without application changes</li>
+                    <li>Rate limiting and throttling considered at the gateway layer as a future enhancement</li>
+                    <li>Basic monitoring and alerting strategy defined based on infrastructure metrics</li>
+                    </ul>
+
+                    <h3>Outcome</h3>
+                    <ul>
+                    <li>Successfully handled moderate traffic volumes during testing and early usage</li>
+                    <li>Established a clean separation between gateway, proxy, and application layers</li>
+                    <li>Created a reusable API gateway pattern applicable to future backend systems</li>
+                    </ul>
+                `
+            },
+        };
+
+        // Modal functions
+        function openModal(projectId) {
+            const project = projectData[projectId];
+            if (!project) return;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <h2>${project.title}</h2>
+                ${project.content}
+            `;
+
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = 80;
+                    const targetPosition = targetElement.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Handle project links from experience section
+                const projectId = this.getAttribute('data-target-project');
+                if (projectId) {
+                    setTimeout(() => {
+                        const projectCard = document.querySelector(`[data-project="${projectId}"]`);
+                        if (projectCard) {
+                            projectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            projectCard.style.boxShadow = '0 0 30px rgba(0, 173, 181, 0.5)';
+                            setTimeout(() => {
+                                projectCard.style.boxShadow = '';
+                            }, 2000);
+                        }
+                    }, 500);
+                }
+            });
+        });
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function updateActiveNav() {
+            let current = '';
+            const scrollY = window.pageYOffset;
+            const navHeight = 80;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                const sectionHeight = section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = '#4CAF50';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .skill-card, .project-card, .experience-card, .education-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize
+        updateActiveNav();
+        updateScrollProgress();
+    </script>
 </body>
+</html>
