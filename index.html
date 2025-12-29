@@ -49,6 +49,11 @@
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--bg-primary);
+        }
+
+        /* Extra safety: kill any accidental horizontal overflow */
+        html, body {
+            max-width: 100%;
             overflow-x: hidden;
         }
 
@@ -96,7 +101,17 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
         .nav-container {
+            position: relative;
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
@@ -996,6 +1011,45 @@
             }
         }
 
+        /* --- Mobile behavior --- */
+        @media (max-width: 768px) {
+            nav {
+                /* reduces “flicker” on mobile */
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            /* Hide links by default */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;            /* just below nav */
+                right: 0;
+                width: min(320px, 92vw);
+                flex-direction: column;
+                gap: 0;
+                background: rgba(26, 26, 46, 0.98);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 16px;
+            }
+
+            /* When open */
+            .nav-links.open {
+                display: flex;
+            }
+        }
+
+
         /* ===== Scroll Progress Indicator ===== */
         .scroll-progress {
             position: fixed;
@@ -1017,6 +1071,10 @@
     <nav>
         <div class="nav-container">
             <a href="#home" class="logo">Abhijeet Kamble</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+              
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -2079,6 +2137,23 @@
         // Initialize
         updateActiveNav();
         updateScrollProgress();
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinksList.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Optional: close menu after clicking a link
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinksList.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
     </script>
 </body>
 </html>
